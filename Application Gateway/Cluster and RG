@@ -1,0 +1,11 @@
+```az group create --name $RESOURCE_GROUP --location $LOCATION```
+
+```az aks create \
+  --name $CLUSTER_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --network-plugin azure \
+  --enable-managed-identity \
+  --appgw-name $APP_GATEWAY_NAME \
+  --appgw-subnet-cidr "10.225.0.0/16" \
+  -a ingress-appgw \
+  --generate-ssh-keys```
