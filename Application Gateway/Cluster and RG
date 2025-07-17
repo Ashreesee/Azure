@@ -1,4 +1,4 @@
-```az group create --name $RESOURCE_GROUP --location $LOCATION```
+<pre lang="markdown">```az group create --name $RESOURCE_GROUP --location $LOCATION```</pre>
 
 ```az aks create \
   --name $CLUSTER_NAME \
