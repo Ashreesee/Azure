@@ -49,3 +49,25 @@ sudo nano /etc/hosts
 (Add this line) <APP_GATEWAY_IP> demo-app.local
 curl -k https://demo-app.local/
 
+
+(Get the register domian) EX-DOMAIN: ashree.dev
+
+
+az network dns zone create \
+  --resource-group $RESOURCE_GROUP \
+  --name ashree.dev
+
+
+az network dns record-set a add-record \
+  --resource-group $RESOURCE_GROUP \
+  --zone-name ashree.dev \
+  --record-set-name demo \
+  --ipv4-address <APP_GATEWAY_PUBLIC_IP>
+
+
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.2/cert-manager.yaml
+
+
+kubectl apply -f cluster-issuer.yaml
+
+kubectl apply -f tls-ingress.yaml
