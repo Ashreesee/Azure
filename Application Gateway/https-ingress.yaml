@@ -4,7 +4,7 @@ metadata:
   name: demo-app-https
   namespace: default
   annotations:
-    kubernetes.io/ingress.class: azure/application-gateway
+    ingressClassName: azure-application-gateway 
     appgw.ingress.kubernetes.io/use-private-ip: "false"
 spec:
   tls:
